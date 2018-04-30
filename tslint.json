@@ -1,0 +1,35 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "jsRules": false,
+  "rules": {
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "any",
+        "grouped-imports": true
+      }
+    ],
+    "interface-name": [true, "never-prefix"],
+    "arrow-parens": false,
+    "trailing-comma": [
+      true,
+      {
+        "objects": "always",
+        "arrays": "always",
+        "functions": "never",
+        "typeLiterals": "always"
+      }
+    ],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "object-literal-sort-keys": false,
+    "variable-name": [true, "check-format", "allow-pascal-case", "allow-leading-underscore"],
+    "no-shadowed-variable": false,
+    "no-implicit-dependencies": true
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": ["**/*.js", "**/__tests__/*"]
+  }
+}
