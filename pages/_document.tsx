@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Poet | Write simply</title>
+          <title>next-starter</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           {this.props.styleTags}
