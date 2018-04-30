@@ -17,7 +17,7 @@ type Props = MappedProps & MappedActions;
 
 class Index extends React.Component<Props> {
   public static async getInitialProps({ store }) {
-    await store.dispatch(loadWorker("Hello, World"));
+    await store.dispatch(loadWorker({ greeding: "Hello, Next.js!" }));
   }
 
   public render() {

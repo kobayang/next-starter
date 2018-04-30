@@ -15,15 +15,22 @@ const initialState: SampleState = {
   text: "",
 };
 
+// Request Params
+export interface GreedingParams {
+  greeding: string;
+}
+
+// API Requests
+
 // Actions
 export const actionCreator = actionCreatorFactory("SAMPLE");
-export const load = actionCreator.async<{}, {}, Error>("SAMPLE/LOAD");
+export const load = actionCreator.async<GreedingParams, void, Error>("SAMPLE/LOAD");
 export const greeding = actionCreator<string>("SAMPLE/GREEDING");
 
 // Request Actions
-export const loadWorker = bindThunkAction(load, async ({}, dispatch) => {
-  await sleep(1000);
-  return dispatch(greeding("Hello, World"));
+export const loadWorker = bindThunkAction(load, async (params, dispatch) => {
+  await sleep(2000);
+  dispatch(greeding(params.greeding));
 });
 
 // Reducers
