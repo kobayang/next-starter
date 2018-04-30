@@ -16,25 +16,25 @@ const initialState: SampleState = {
 };
 
 // Request Params
-export interface GreedingParams {
-  greeding: string;
+export interface GreetingParams {
+  greeting: string;
 }
 
 // API Requests
 
 // Actions
 export const actionCreator = actionCreatorFactory("SAMPLE");
-export const load = actionCreator.async<GreedingParams, void, Error>("SAMPLE/LOAD");
-export const greeding = actionCreator<string>("SAMPLE/GREEDING");
+export const load = actionCreator.async<GreetingParams, void, Error>("SAMPLE/LOAD");
+export const greeting = actionCreator<string>("SAMPLE/GREETING");
 
 // Request Actions
 export const loadWorker = bindThunkAction(load, async (params, dispatch) => {
   await sleep(2000);
-  dispatch(greeding(params.greeding));
+  dispatch(greeting(params.greeting));
 });
 
 // Reducers
 export const sampleReducer = reducerWithInitialState(initialState)
   .case(load.started, state => ({ ...state, isLoading: true }))
   .case(load.done, state => ({ ...state, isLoading: false }))
-  .case(greeding, (state, payload) => ({ ...state, text: payload }));
+  .case(greeting, (state, payload) => ({ ...state, text: payload }));
