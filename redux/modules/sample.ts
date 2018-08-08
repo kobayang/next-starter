@@ -24,7 +24,7 @@ export interface GreetingParams {
 
 // Actions
 export const actionCreator = actionCreatorFactory("SAMPLE");
-export const load = actionCreator.async<GreetingParams, void, Error>("SAMPLE/LOAD");
+export const load = actionCreator.async<GreetingParams, null, Error>("SAMPLE/LOAD");
 export const greeting = actionCreator<string>("SAMPLE/GREETING");
 
 // Request Actions

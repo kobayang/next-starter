@@ -1,10 +1,8 @@
 import React from "react";
-import withRedux from "next-redux-wrapper";
-import { bindActionCreators } from "redux";
-import { Dispatch } from "react-redux";
+import { bindActionCreators, Dispatch, AnyAction } from "redux";
+import { connect } from "react-redux";
 
-import { initStore } from "../redux/store";
-import { RootState } from "../state";
+import { RootState } from "../redux/state";
 import { SampleState, loadWorker } from "../redux/modules/sample";
 
 interface MappedProps {
@@ -35,8 +33,11 @@ function mapStateToProps(state: RootState): MappedProps {
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<RootState>): MappedActions {
+function mapDispatchToProps(dispatch: Dispatch<AnyAction>): MappedActions {
   return bindActionCreators({ loadWorker }, dispatch);
 }
 
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(Index);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Index);
